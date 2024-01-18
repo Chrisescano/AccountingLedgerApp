@@ -17,6 +17,7 @@ public class LedgerScreen implements Display {
     @Override
     public void run() {
         while (true) {
+            System.out.println();
             System.out.println("""
                 ==========[ Ledger Screen ]==========
                 (1) - Display All Entries

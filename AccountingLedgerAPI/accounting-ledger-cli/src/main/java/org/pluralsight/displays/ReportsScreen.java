@@ -17,6 +17,7 @@ public class ReportsScreen implements Display {
 
     @Override
     public void run() {
+        System.out.println();
         System.out.println("""
                 ==========[ Reports Screen ]==========
                 ======[ Search By Custom Values ]=====
