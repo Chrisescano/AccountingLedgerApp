@@ -4,6 +4,7 @@ When the application is running it will start listening for HTTP requests at the
 - [Register As A New User](#register-as-a-new-user)
 - [Getting A Users Profile](#getting-a-users-profile)
 - [Editing A Users Profile](#editing-a-users-profile)
+- [Adding A Deposit](#adding-a-deposit)
 
 ---
 ### Login In As An Existing User
@@ -104,5 +105,32 @@ BODY :
     "firstName": "[users new fist name]",
     "lastName": "[users new last name]",
     "email": "[users new email]",
+}
+```
+---
+### Adding a Deposit
+Request
+```
+URL  : http://localhost:8080/transaction
+TYPE : POST
+BODY :
+{
+  "id" : "[transaction id]",
+  "userId" : "[users id]",
+  "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
+  "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+  "description" : "[vendor]",
+  "amount" : [amount being added] 
+}
+```
+Response
+```
+CODE : 201 CREATED
+BODY :
+{
+  "id" : [transaction id],
+  "":"[]",
+  "":"[]"
+  ]
 }
 ```
