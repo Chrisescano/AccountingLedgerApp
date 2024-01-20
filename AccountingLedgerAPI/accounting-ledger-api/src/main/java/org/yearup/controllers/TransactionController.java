@@ -32,15 +32,19 @@ public class TransactionController {
         User user = userDao.getByUserName(userName);
         int userId = user.getId();
 
-        return transactionDao.getAll(1);
+        return transactionDao.getAll(userId);
     }
 
 
 
     @PostMapping("transaction")
-    public Transaction addTransaction(@RequestBody Transaction transaction) {
-        System.out.println(transaction);
-        return null;
+    public Transaction addTransaction(@RequestBody Transaction transaction, Principal principal) {
+        String userName = principal.getName();
+        User user = userDao.getByUserName(userName);
+        int userId = user.getId();
+
+        transaction.setUserId(userId);
+        return transactionDao.addTransaction(transaction);
     }
 }
 
