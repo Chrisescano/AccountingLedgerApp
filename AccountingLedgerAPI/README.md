@@ -118,7 +118,8 @@ BODY :
 {
   "date" : "[date when transaction was processed in YYYY/MM/SS format]",
   "time" : "[time when transaction was processed in HH:mm:ss format]",
-  "description" : "[vendor]",
+  "description" : "[description of transaction]",
+  "vendor" : "[vendor of transaction]"
   "amount" : [amount being added/taken out]
 }
 ```
