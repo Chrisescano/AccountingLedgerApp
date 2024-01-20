@@ -116,8 +116,8 @@ URL  : http://localhost:8080/transaction
 TYPE : POST
 BODY :
 {
-  "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
-  "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+  "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+  "time" : "[time when transaction was processed in HH:mm:ss format]",
   "description" : "[vendor]",
   "amount" : [amount being added/taken out]
 }
@@ -129,8 +129,8 @@ BODY :
 {
   "id" : "[transaction id]",
   "userId" : "[user id]",
-  "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
-  "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+  "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+  "time" : "[time when transaction was processed in HH:mm:ss format]",
   "description" : "[description of the transaction]",
   "vendor" : "[where the money the money is going/coming from]"
   "amount" : [amount being added/taken out] 
@@ -151,8 +151,8 @@ BODY :
     {
       "id" : "[transaction id]",
       "userId" : "[user id]",
-      "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
-      "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
       "description" : "[description of the transaction]",
       "vendor" : "[where the money the money is going/coming from]"
       "amount" : [amount being added/taken out] 
@@ -160,8 +160,8 @@ BODY :
     {
       "id" : "[transaction id]",
       "userId" : "[user id]",
-      "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
-      "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
       "description" : "[description of the transaction]",
       "vendor" : "[where the money the money is going/coming from]"
       "amount" : [amount being added/taken out] 
@@ -169,8 +169,8 @@ BODY :
     {
       "id" : "[transaction id]",
       "userId" : "[user id]",
-      "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
-      "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
       "description" : "[description of the transaction]",
       "vendor" : "[where the money the money is going/coming from]"
       "amount" : [amount being added/taken out] 
