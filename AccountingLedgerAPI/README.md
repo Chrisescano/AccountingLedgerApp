@@ -1,10 +1,11 @@
 # API EndPoints
 When the application is running it will start listening for HTTP requests at the base url `http://localhost:8080`. Here is a list that briefly describes each endpoint:
-- [Login In As An Existing User](#login-in-as-an-existing-user)
-- [Register As A New User](#register-as-a-new-user)
-- [Getting A Users Profile](#getting-a-users-profile)
-- [Editing A Users Profile](#editing-a-users-profile)
-- [Adding A Deposit](#adding-a-deposit)
+- [Login In As an Existing User](#login-in-as-an-existing-user)
+- [Register As a New User](#register-as-a-new-user)
+- [Getting a Users Profile](#getting-a-users-profile)
+- [Editing a Users Profile](#editing-a-users-profile)
+- [Adding a Transaction](#adding-a-deposit)
+- [Viewing the Ledger](#viewing-the-ledger)
 
 ---
 ### Login In As An Existing User
@@ -108,19 +109,17 @@ BODY :
 }
 ```
 ---
-### Adding a Deposit
+### Adding a Transaction
 Request
 ```
 URL  : http://localhost:8080/transaction
 TYPE : POST
 BODY :
 {
-  "id" : "[transaction id]",
-  "userId" : "[users id]",
   "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
   "localTime" : "[time when transaction was processed in HH:mm:ss format]",
   "description" : "[vendor]",
-  "amount" : [amount being added] 
+  "amount" : [amount being added/taken out]
 }
 ```
 Response
@@ -128,9 +127,54 @@ Response
 CODE : 201 CREATED
 BODY :
 {
-  "id" : [transaction id],
-  "":"[]",
-  "":"[]"
-  ]
+  "id" : "[transaction id]",
+  "userId" : "[user id]",
+  "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
+  "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+  "description" : "[description of the transaction]",
+  "vendor" : "[where the money the money is going/coming from]"
+  "amount" : [amount being added/taken out] 
 }
+```
+### Viewing the Ledger
+Request
+```
+URL  : http://localhost:8080/ledger
+TYPE : GET
+BODY : NULL
+```
+Response
+```
+CODE : 201 CREATED
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
+      "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount being added/taken out] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
+      "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount being added/taken out] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "localDate" : "[date when transaction was processed in MM/dd/YYYY format]",
+      "localTime" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount being added/taken out] 
+    },
+...
+ ]
 ```
