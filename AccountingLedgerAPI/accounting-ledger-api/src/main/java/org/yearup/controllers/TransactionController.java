@@ -11,6 +11,7 @@ import org.yearup.models.Transaction;
 import org.yearup.models.User;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.List;
 
 @CrossOrigin
@@ -32,10 +33,27 @@ public class TransactionController {
         User user = userDao.getByUserName(userName);
         int userId = user.getId();
 
-        return transactionDao.getAll(1);
+        return transactionDao.getAll(userId);
     }
 
+    @GetMapping("transaction")
+    public List<Transaction> customTransactionSearch(
+            @RequestParam(name = "start", required = false) LocalDate startDate,
+            @RequestParam(name = "end", required = false) LocalDate endDate,
+            @RequestParam(name = "description", required = false) String description,
+            @RequestParam(name = "vendor", required = false) String vendor,
+            @RequestParam(name = "min", required = false) Integer min,
+            @RequestParam(name = "max", required = false) Integer max,
+            Principal principal
+    ) {
+        String userName = principal.getName();
+        User user = userDao.getByUserName(userName);
+        int userId = user.getId();
 
+
+
+        return null;
+    }
 
     @PostMapping("transaction")
     public Transaction addTransaction(@RequestBody Transaction transaction) {

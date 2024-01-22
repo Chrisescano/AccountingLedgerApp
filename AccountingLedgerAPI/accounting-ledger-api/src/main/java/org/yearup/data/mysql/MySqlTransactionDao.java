@@ -42,6 +42,11 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
     }
 
     @Override
+    public List<Transaction> search(LocalDate start, LocalDate end, String description, String vendor, int max, int min, int userId) {
+        return null;
+    }
+
+    @Override
     public List<Transaction> getAll(int userId) {
         String sql = "SELECT * FROM transactions;";
         List<Transaction> transactions = new ArrayList<>();

@@ -11,10 +11,10 @@ public class Ledger {
     private final FileManager fileManager;
     private final ArrayList<Transaction> ledger;
     private static final int DATE = 0;
-    private static final int TIME = 0;
-    private static final int DESCRIPTION = 0;
-    private static final int VENDOR = 0;
-    private static final int AMOUNT = 0;
+    private static final int TIME = 1;
+    private static final int DESCRIPTION = 2;
+    private static final int VENDOR = 3;
+    private static final int AMOUNT = 4;
 
     public Ledger() {
         ledger = new ArrayList<>();
