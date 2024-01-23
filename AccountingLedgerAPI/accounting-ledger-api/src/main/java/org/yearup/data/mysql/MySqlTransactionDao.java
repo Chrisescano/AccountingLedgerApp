@@ -48,11 +48,12 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
 
     @Override
     public List<Transaction> getAll(int userId) {
-        String sql = "SELECT * FROM transactions;";
+        String sql = "SELECT * FROM transactions WHERE user_id = ?;";
         List<Transaction> transactions = new ArrayList<>();
 
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, userId);
             ResultSet rows = statement.executeQuery();
 
             while (rows.next()) {
@@ -101,7 +102,7 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
     }
 
     protected static Transaction mapRow(ResultSet row) throws SQLException {
-        int id = row.getInt("transaction_id");
+        int transactionId = row.getInt("transaction_id");
         int userId = row.getInt("user_id");
         LocalDate date = row.getDate("date").toLocalDate();
         LocalTime time = row.getTime("time").toLocalTime();
@@ -109,6 +110,6 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
         String vendor = row.getString("vendor");
         double amount = row.getDouble("amount");
 
-        return new Transaction(id, userId, date, time, description, vendor, amount);
+        return new Transaction(transactionId, userId, date, time, description, vendor, amount);
     }
 }

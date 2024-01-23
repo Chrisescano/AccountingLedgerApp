@@ -1,9 +1,11 @@
 # API EndPoints
 When the application is running it will start listening for HTTP requests at the base url `http://localhost:8080`. Here is a list that briefly describes each endpoint:
-- [Login In As An Existing User](#login-in-as-an-existing-user)
-- [Register As A New User](#register-as-a-new-user)
-- [Getting A Users Profile](#getting-a-users-profile)
-- [Editing A Users Profile](#editing-a-users-profile)
+- [Login In As an Existing User](#login-in-as-an-existing-user)
+- [Register As a New User](#register-as-a-new-user)
+- [Getting a Users Profile](#getting-a-users-profile)
+- [Editing a Users Profile](#editing-a-users-profile)
+- [Adding a Transaction](#adding-a-deposit)
+- [Viewing the Ledger](#viewing-the-ledger)
 
 ---
 ### Login In As An Existing User
@@ -105,4 +107,75 @@ BODY :
     "lastName": "[users new last name]",
     "email": "[users new email]",
 }
+```
+---
+### Adding a Transaction
+Request
+```
+URL  : http://localhost:8080/transaction
+TYPE : POST
+BODY :
+{
+  "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+  "time" : "[time when transaction was processed in HH:mm:ss format]",
+  "description" : "[description of transaction]",
+  "vendor" : "[vendor of transaction]"
+  "amount" : [amount being added/taken out]
+}
+```
+Response
+```
+CODE : 201 CREATED
+BODY :
+{
+  "id" : "[transaction id]",
+  "userId" : "[user id]",
+  "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+  "time" : "[time when transaction was processed in HH:mm:ss format]",
+  "description" : "[description of the transaction]",
+  "vendor" : "[where the money the money is going/coming from]"
+  "amount" : [amount being added/taken out] 
+}
+```
+### Viewing the Ledger
+Request
+```
+URL  : http://localhost:8080/ledger
+TYPE : GET
+BODY : NULL
+```
+Response
+```
+CODE : 201 CREATED
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount being added/taken out] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount being added/taken out] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount being added/taken out] 
+    },
+...
+ ]
 ```
