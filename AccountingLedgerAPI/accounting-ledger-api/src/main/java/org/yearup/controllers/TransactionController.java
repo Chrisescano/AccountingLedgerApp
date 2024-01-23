@@ -1,6 +1,7 @@
 package org.yearup.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.yearup.data.ProfileDao;
@@ -82,6 +83,7 @@ public class TransactionController {
     }
 
     @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
     public Transaction addTransaction(@RequestBody Transaction transaction, Principal principal) {
         String userName = principal.getName();
         User user = userDao.getByUserName(userName);
