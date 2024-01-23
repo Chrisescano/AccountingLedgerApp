@@ -47,19 +47,6 @@ CREATE TABLE profiles (
 # ---------------------------------------------------------------------- #
 # Inserting Values                                                       #
 # ---------------------------------------------------------------------- #
-
-INSERT INTO users (username, hashed_password, role) 
-VALUES 
-        ('christian','$2y$10$d7WdRy2u7drnEwgHAB30I.x4ttudNjYY8aX597ctqIk0xtHTCrjJa','ROLE_USER'),
-        ('sahara', '$2y$10$kWgxtfLR5ykpogEhV7VUfO5/XgurBJQ1WqCR7d/V9u./H2WnhMvwq', 'ROLE_USER'),
-        ('ibra','$2y$10$JnIl6sq9uZ0sbmuO9xRccOpDbS2aYnzfMFBuNK6gSNSpZQeLDCK/C','ROLE_USER'),
-        ('lawrence', '$2y$10$W0gEsOsonGMZ/lfcthTJ7uM87T12DOA4G3bYvMajeTJsvifB.3IvO', 'ROLE_USER'),
-        ('daisy', '$2y$10$kMGLh2Vr4C4hqALTp1thAu03KwoI6ERkU0REKeRhNHGPnKaOtD1gW', 'ROLE_USER'),
-        ('shaq', '$2y$10$NSh3nTZ3FLZlP99DSF8kIOKaQ3tbSOowI4pBIBimmcD5OVH36wyqu', 'ROLE_USER'),
-        ('juan', '$2y$10$PHPYsb4L2dBeEcKQYbd0eeu8pYdJZZ4H3Bb/x.cOtHQO8tR71dpMa', 'ROLE_USER'),
-        ('omar', '$2y$10$HDhWPQGcMQedhybfLhJSluPElyrT/VdYUvNA0f4Yz6oxovphExpri', 'ROLE_USER'),
-        ('user','$2a$10$NkufUPF3V8dEPSZeo1fzHe9ScBu.LOay9S3N32M84yuUM2OJYEJ/.','ROLE_USER'),
-        ('admin','$2a$10$lfQi9jSfhZZhfS6/Kyzv3u3418IgnWXWDQDk7IbcwlCFPgxg9Iud2','ROLE_ADMIN');
         
 INSERT INTO transactions (user_id, `date`, `time`, `description`, vendor, amount)
 		# ---------------------------------------------------------------------- #
@@ -401,6 +388,19 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 	(8, '2023-12-21', '13:00:00', 'Birthday Gift', 'Friend I', 95.00),
 	(8, '2023-10-01', '18:30:00', 'Workshop Payment', 'Workshop Host', 150.00),
 	(8, '2023-11-05', '22:45:00', 'Consultation Fee', 'Client ABC', 480.00);
+    
+INSERT INTO users (username, hashed_password, role) 
+VALUES 
+        ('christian','$2y$10$d7WdRy2u7drnEwgHAB30I.x4ttudNjYY8aX597ctqIk0xtHTCrjJa','ROLE_USER'),
+        ('ibra','$2y$10$JnIl6sq9uZ0sbmuO9xRccOpDbS2aYnzfMFBuNK6gSNSpZQeLDCK/C','ROLE_USER'),
+        ('sahara', '$2y$10$kWgxtfLR5ykpogEhV7VUfO5/XgurBJQ1WqCR7d/V9u./H2WnhMvwq', 'ROLE_USER'),
+        ('shaq', '$2y$10$NSh3nTZ3FLZlP99DSF8kIOKaQ3tbSOowI4pBIBimmcD5OVH36wyqu', 'ROLE_USER'),
+        ('lawrence', '$2y$10$W0gEsOsonGMZ/lfcthTJ7uM87T12DOA4G3bYvMajeTJsvifB.3IvO', 'ROLE_USER'),
+        ('daisy', '$2y$10$kMGLh2Vr4C4hqALTp1thAu03KwoI6ERkU0REKeRhNHGPnKaOtD1gW', 'ROLE_USER'),
+        ('juan', '$2y$10$PHPYsb4L2dBeEcKQYbd0eeu8pYdJZZ4H3Bb/x.cOtHQO8tR71dpMa', 'ROLE_USER'),
+        ('omar', '$2y$10$HDhWPQGcMQedhybfLhJSluPElyrT/VdYUvNA0f4Yz6oxovphExpri', 'ROLE_USER'),
+        ('user','$2a$10$NkufUPF3V8dEPSZeo1fzHe9ScBu.LOay9S3N32M84yuUM2OJYEJ/.','ROLE_USER'),
+        ('admin','$2a$10$lfQi9jSfhZZhfS6/Kyzv3u3418IgnWXWDQDk7IbcwlCFPgxg9Iud2','ROLE_ADMIN');
 
 INSERT INTO profiles (user_id, first_name, last_name, email)
 VALUES  (1, 'Christian', 'Escano', 'chris.e@gmail.com'),
