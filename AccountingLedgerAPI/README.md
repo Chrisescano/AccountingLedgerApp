@@ -138,6 +138,7 @@ BODY :
   "amount" : [amount being added/taken out] 
 }
 ```
+---
 ### Viewing the Ledger
 Request
 ```
@@ -179,8 +180,8 @@ BODY :
     },
 ...
  ]
----
 ```
+---
 ### Searching a Transaction
 Request
 ```
