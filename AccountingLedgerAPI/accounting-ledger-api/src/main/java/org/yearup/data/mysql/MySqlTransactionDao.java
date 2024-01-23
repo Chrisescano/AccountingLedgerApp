@@ -5,6 +5,7 @@ import org.yearup.data.TransactionDao;
 import org.yearup.models.Transaction;
 
 import javax.sql.DataSource;
+import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -39,40 +40,30 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
     }
 
     @Override
-    public List<Transaction> search(LocalDate start, LocalDate end, String description, String vendor, int max, int min, Integer userId) {
+    public List<Transaction> search(LocalDate start, LocalDate end, String description, String vendor, BigDecimal min, BigDecimal max, int userId) {
         List<Transaction> transactions = new ArrayList<>();
 
-        String sql = "SELECT * FROM transactions" +
-                "WHERE ( user_id = ? OR ? = -1) " +
-                " AND ( date >= ? OR ? = -1)" +
-                " AND ( date <= ? OR ? = -1)" +
-                " AND ( description = ? OR ? = '' )" +
-                " AND ( vendor = ? OR ? = '' ) " +
-                " AND ( amount >= ? OR ? = -1) " +
-                " AND ( amount <= ? OR ? = -1) " ;
-        start = start == null ? LocalDate.MIN : start;
-        end = end == null ? LocalDate.MIN : end;
-        userId = userId == null ? -1 : userId;
-
+        String sql = """
+                SELECT * FROM transactions
+                WHERE user_id = ?
+                AND (date BETWEEN ? AND ?)
+                AND (description LIKE ?)
+                AND (vendor LIKE ?)
+                AND (amount BETWEEN ? AND ?);
+                """;
 
         try(Connection connection = getConnection()){
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1,userId);
-            statement.setInt(2,userId);
-            statement.setDate(3, Date.valueOf(start));
-            statement.setDate(4, Date.valueOf(start));
-            statement.setDate(5, Date.valueOf(end));
-            statement.setDate(6, Date.valueOf(end));
-            statement.setString(7, description);
-            statement.setString(8, description);
-            statement.setString(9, vendor);
-            statement.setString(10, vendor);
-            statement.setInt(11, min);
-            statement.setInt(12, min);
-            statement.setInt(13, max);
-            statement.setInt(14, max);
+            statement.setDate(2, Date.valueOf(start));
+            statement.setDate(3, Date.valueOf(end));
+            statement.setString(4, description);
+            statement.setString(5, vendor);
+            statement.setBigDecimal(6, min);
+            statement.setBigDecimal(7, max);
 
             ResultSet row = statement.executeQuery();
+
             while (row.next()){
                 Transaction transaction = mapRow(row);
                 transactions.add(transaction);
