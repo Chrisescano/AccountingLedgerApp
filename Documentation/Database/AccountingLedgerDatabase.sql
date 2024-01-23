@@ -125,7 +125,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(2, '2023-11-10', '15:15:00', 'Movie night', 'Cineplex', -20.00),
 		(2, '2023-11-15', '09:30:00', 'Coffee and pastry', 'Café Latte', -10.50),
 		(2, '2023-11-20', '12:30:00', 'Lunch at a food court', 'Food Junction', -15.00),
-        
+
         (3, '2024-01-21', '11:00:00', 'Lunch with clients', 'Restaurant XYZ', -120.00),
         (3, '2024-01-24', '13:45:00', 'Travel expenses', 'Airline XYZ', -300.00),
         (3, '2024-01-27', '14:30:00', 'Training workshop fee', 'Training Center', -180.00),
@@ -151,7 +151,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(3, '2023-12-22', '08:00:00', 'Dinner - Outback Steakhouse', 'Outback Steakhouse', -65.00),
 		(3, '2023-12-23', '16:30:00', 'Entertainment - Theme Park Tickets', 'WonderWorld', -100.00),
 		(3, '2023-12-24', '13:45:00', 'Lunch - Panera Bread', 'Panera Bread', -15.50),
-		
+
         (4, '2023-11-01', '12:00:00', 'Online subscriptions', 'SubscriptionHub', -20.00),
 		(4, '2023-11-02', '14:45:00', 'Marketing materials', 'PrintZone', -120.00),
 		(4, '2023-11-03', '16:30:00', 'Team-building event', 'EventPlanner', -250.00),
@@ -180,7 +180,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(4, '2023-11-26', '09:00:00', 'Equipment purchase', 'TechStore', -500.00),
 		(4, '2023-11-27', '14:30:00', 'Training workshop fee', 'Training Center', -180.00),
 		(4, '2023-11-28', '16:45:00', 'Dinner with colleagues', 'Restaurant XYZ', -90.50),
-        
+
         (5, '2023-10-01', '12:00:00', 'iPhone purchase', 'Apple Store', -1000.00),
 		(5, '2023-10-02', '14:45:00', 'Nike shoes', 'Nike Retail', -120.00),
 		(5, '2023-10-03', '16:30:00', 'Amazon Prime subscription', 'Amazon', -15.99),
@@ -211,7 +211,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(5, '2023-10-28', '16:45:00', 'Xbox Series X', 'Microsoft Store', -499.99),
 		(5, '2023-10-29', '11:15:00', 'GoDaddy domain registration', 'GoDaddy', -14.99),
 		(5, '2023-10-30', '13:00:00', 'Clothing Shopping', 'Gucci', -50.00),
-		
+
         (6, '2023-11-01', '12:00:00', 'Clothing purchase', 'FashionHub', -80.00),
 		(6, '2023-11-02', '14:45:00', 'Rent payment', 'Landlord Realty', -1200.00),
 		(6, '2023-11-03', '16:30:00', 'Dinner at a fancy restaurant', 'Gourmet Bistro', 150.00),
@@ -242,7 +242,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(6, '2023-11-28', '16:45:00', 'Dinner at a fine dining restaurant', 'Gourmet Haven', -120.00),
 		(6, '2023-11-29', '11:15:00', 'Movie night with friends', 'CinemaPlex', -30.00),
 		(6, '2023-11-30', '13:00:00', 'Clothing purchase', 'FashionHub', -85.00),
-		
+
         (7, '2023-11-01', '12:00:00', 'Rent payment', 'Property Management', -1200.00),
 		(7, '2023-11-02', '14:45:00', 'Clothing purchase', 'Fashion Boutique', -150.00),
 		(7, '2023-11-03', '16:30:00', 'Grocery shopping', 'SuperMart', -80.00),
@@ -273,7 +273,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(7, '2023-11-28', '16:45:00', 'Clothing purchase', 'Fashion Boutique', -130.00),
 		(7, '2023-11-29', '11:15:00', 'Grocery shopping', 'SuperMart', -90.00),
 		(7, '2023-11-30', '13:00:00', 'Lunch at Local Bistro', 'Local Bistro', -35.00),
-		
+
         (8, '2023-11-01', '12:00:00', 'Clothing shopping', 'FashionEmpire', -150.00),
 		(8, '2023-11-02', '14:45:00', 'Dinner at a fancy restaurant', 'FineDine', -100.00),
 		(8, '2023-11-03', '16:30:00', 'Rent payment', 'RealEstateCo', -1200.00),
@@ -316,7 +316,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(1, '2024-01-28', '08:45:00', 'Commission - Art Sale', 'Art Gallery', 150.00),
 		(1, '2023-08-01', '13:15:00', 'Workshop Payment', 'Workshop Organizer', 120.00),
 		(1, '2023-12-15', '18:00:00', 'Consultation Fee', 'Client ABC', 300.00),
-        
+
         (2, '2024-01-01', '09:00:00', 'Salary - Work', 'XYZ Corporation', 3500.00),
 		(2, '2024-01-04', '13:30:00', 'Gift from Sister', 'Sister', 120.00),
 		(2, '2024-01-08', '10:00:00', 'Freelance Payment', 'Client PQR', 600.00),
@@ -327,7 +327,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(2, '2024-01-10', '09:45:00', 'Birthday Gift', 'Friend B', 75.00),
 		(2, '2024-01-01', '14:15:00', 'Workshop Payment', 'Workshop Host', 80.00),
 		(2, '2023-12-09', '19:30:00', 'Consultation Fee', 'Client XYZ', 400.00),
-        
+
         (3, '2024-01-01', '10:30:00', 'Salary - Work', 'LMN Corporation', 2800.00),
 		(3, '2024-01-04', '14:45:00', 'Gift from Dad', 'Dad', 200.00),
 		(3, '2024-01-08', '11:15:00', 'Freelance Payment', 'Client DEF', 450.00),
@@ -338,7 +338,7 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 		(3, '2024-01-17', '10:00:00', 'Commission - Art Sale', 'Art Expo', 120.00),
 		(3, '2024-01-01', '15:15:00', 'Workshop Payment', 'Workshop Organizer', 90.00),
 		(3, '2023-09-05', '20:30:00', 'Consultation Fee', 'Client LMN', 350.00),
-        
+
         (4, '2024-01-01', '11:00:00', 'Salary - Work', 'OPQ Corporation', 3200.00),
 		(4, '2024-01-04', '15:15:00', 'Gift from Uncle', 'Uncle', 180.00),
 		(4, '2024-01-08', '11:45:00', 'Freelance Payment', 'Client GHI', 550.00),
