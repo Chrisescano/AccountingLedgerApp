@@ -41,7 +41,7 @@ CREATE TABLE profiles (
     PRIMARY KEY (user_id),
     FOREIGN KEY (user_id)
         REFERENCES users (user_id)
-        -- ON UPDATE CASCADE
+        ON UPDATE CASCADE
 );
 
 # ---------------------------------------------------------------------- #
