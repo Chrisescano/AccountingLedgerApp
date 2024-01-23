@@ -7,6 +7,8 @@ When the application is running it will start listening for HTTP requests at the
 - [Adding a Transaction](#adding-a-transaction)
 - [Viewing the Ledger](#viewing-the-ledger)
 - [Searching a Transaction](#searching-a-transaction)
+- [Getting Deposits](#getting-deposits)
+- [Getting Payments](#getting-payments)
 
 ---
 ### Login In As An Existing User
@@ -223,4 +225,88 @@ BODY :
     },
 ...
  ]
+```
+---
+# Getting Deposits
+Request
+```
+URL  : http://localhost:8080/transaction/deposits
+TYPE : GET
+BODY : NULL
+```
+Response
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount] 
+    },
+...
+```
+---
+# Getting Payments (Amounts Will Be Positive)
+Request
+```
+URL  : http://localhost:8080/transaction/payments
+TYPE : GET
+BODY : NULL
+```
+Response
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+...
 ```
