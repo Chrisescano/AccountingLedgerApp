@@ -304,6 +304,10 @@ VALUES  (1, '2024-01-17', '12:00:00', 'For rent', 'Landlord', -1500.00),
 	(8, '2023-11-26', '09:00:00', 'Coffee and pastry', 'CafeDelight', -10.50),
 	(8, '2023-11-27', '14:30:00', 'Tech gadget purchase', 'TechHub', -180.00),
 	(8, '2023-11-28', '16:45:00', 'Business dinner', 'Local Bistro', -90.50),
+    
+    (9, '2024-01-22', '10:00:00', 'Testing User', 'Testing', -1),
+    
+    (10, '2024-01-22', '10:00:00', 'Testing Admin', 'Testing', -1),
         
         # ---------------------------------------------------------------------- #
 	# 				Deposits:                                #
@@ -405,6 +409,9 @@ VALUES  (1, 'Christian', 'Escano', 'chris.e@gmail.com'),
         (5, 'Lawrence', 'Tejeda', 'lawrence.t@gmail.com'),
         (6, 'Daisy', 'Gonzalez', 'daisy.g@gmail.com'),
         (7, 'Juan', 'Aviles', 'juan.a@gmail.com'),
-        (8, 'Omar', 'Odaoud', 'omar.o@gmail.com');
-
+        (8, 'Omar', 'Odaoud', 'omar.o@gmail.com'),
+		(9, 'user', 'user', 'user.user@gmail.com'),
+        (10, 'admin', 'admin', 'admin.admin@gmail.com');
+        
+        
 select * from transactions;
