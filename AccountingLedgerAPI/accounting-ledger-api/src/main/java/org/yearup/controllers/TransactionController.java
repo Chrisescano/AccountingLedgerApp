@@ -62,6 +62,7 @@ public class TransactionController {
         int userId = user.getId();
 
         transaction.setUserId(userId);
+
         return transactionDao.addTransaction(transaction);
     }
 }
