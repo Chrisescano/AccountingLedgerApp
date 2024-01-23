@@ -23,7 +23,7 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
 
     @Override
     public Transaction getById(int id) {
-        String sql = "SELECT * FROM transactions WHERE id = ?;";
+        String sql = "SELECT * FROM transactions WHERE transaction_id = ?;";
 
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -69,17 +69,18 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
     @Override
     public Transaction addTransaction(Transaction transaction) {
         String sql = """
-                INSERT INTO transactions (date, time, description, vendor, amount)
-                VALUES (?, ?, ?, ?, ?);
+                INSERT INTO transactions (user_id, date, time, description, vendor, amount)
+                VALUES (?, ?, ?, ?, ?, ?);
                 """;
 
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            statement.setDate(1, java.sql.Date.valueOf(transaction.getDate()));
-            statement.setTime(2, java.sql.Time.valueOf(transaction.getTime()));
-            statement.setString(3, transaction.getDescription());
-            statement.setString(4, transaction.getVendor());
-            statement.setDouble(5, transaction.getAmount());
+            statement.setInt(1, transaction.getUserId());
+            statement.setDate(2, java.sql.Date.valueOf(transaction.getDate()));
+            statement.setTime(3, java.sql.Time.valueOf(transaction.getTime()));
+            statement.setString(4, transaction.getDescription());
+            statement.setString(5, transaction.getVendor());
+            statement.setDouble(6, transaction.getAmount());
 
             int rowsAffected = statement.executeUpdate();
 
@@ -100,13 +101,14 @@ public class MySqlTransactionDao extends MySqlDaoBase implements TransactionDao 
     }
 
     protected static Transaction mapRow(ResultSet row) throws SQLException {
-        int id = row.getInt("id");
+        int id = row.getInt("transaction_id");
+        int userId = row.getInt("user_id");
         LocalDate date = row.getDate("date").toLocalDate();
         LocalTime time = row.getTime("time").toLocalTime();
         String description = row.getString("description");
         String vendor = row.getString("vendor");
         double amount = row.getDouble("amount");
 
-        return new Transaction(id, 0, date, time, description, vendor, amount);
+        return new Transaction(id, userId, date, time, description, vendor, amount);
     }
 }
