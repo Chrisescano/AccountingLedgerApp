@@ -7,6 +7,13 @@ When the application is running it will start listening for HTTP requests at the
 - [Adding a Transaction](#adding-a-transaction)
 - [Viewing the Ledger](#viewing-the-ledger)
 - [Searching a Transaction](#searching-a-transaction)
+- [Getting Deposits](#getting-deposits)
+- [Getting Payments](#getting-payments)
+- [Month To Date Report](#month-to-date-report)
+- [Previous Month Report](#previous-month-report)
+- [Year To Date Report](#year-to-date-report)
+- [Previous Year Report](#previous-year-report)
+- [Search By Vendor Report](#search-by-vendor-report)
 
 ---
 ### Login In As An Existing User
@@ -148,7 +155,7 @@ BODY : NULL
 ```
 Response
 ```
-CODE : 201 CREATED
+CODE : 200 OK
 BODY :
  [
     {
@@ -184,8 +191,9 @@ BODY :
 ---
 ### Searching a Transaction
 Request
+Notes: the start and end dates are strings
 ```
-URL  : http://localhost:8080/transaction
+URL  : http://localhost:8080/transaction?start=[YYYY-MM-DD]&end=[YYYY-MM-DD]&description=[string]&vendor=[string]&min=[number]&max=[number]
 TYPE : GET
 BODY : null
 ```
@@ -223,4 +231,300 @@ BODY :
     },
 ...
  ]
+```
+---
+### Getting Deposits
+Request
+```
+URL  : http://localhost:8080/transaction/deposits
+TYPE : GET
+BODY : NULL
+```
+Response
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount] 
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount] 
+    },
+...
+```
+---
+### Getting Payments
+Request
+Note: Payment amounts will be positive
+```
+URL  : http://localhost:8080/transaction/payments
+TYPE : GET
+BODY : NULL
+```
+Response
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+...
+```
+---
+### Month To Date Report
+Request
+```
+URL  : http://localhost:8080/reports/month-to-date
+TYPE : GET
+BODY : NULL
+```
+Report
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+...
+```
+---
+### Previous Month Report
+Request
+```
+URL  : http://localhost:8080/reports/previous-month
+TYPE : GET
+BODY : NULL
+```
+Report
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+...
+```
+---
+### Year To Date Report
+Request
+```
+URL  : http://localhost:8080/reports/year-to-date
+TYPE : GET
+BODY : NULL
+```
+Report
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+...
+```
+---
+### Previous Year Report
+Request
+```
+URL  : http://localhost:8080/reports/previous-year
+TYPE : GET
+BODY : NULL
+```
+Report
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+...
+```
+---
+### Search By Vendor Report
+Request
+NOTE: String is not optional, it is required to search by vendor
+```
+URL  : http://localhost:8080/reports?vendor=[string]
+TYPE : GET
+BODY : NULL
+```
+Report
+```
+CODE : 200 OK
+BODY :
+ [
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+    {
+      "id" : "[transaction id]",
+      "userId" : "[user id]",
+      "date" : "[date when transaction was processed in YYYY/MM/SS format]",
+      "time" : "[time when transaction was processed in HH:mm:ss format]",
+      "description" : "[description of the transaction]",
+      "vendor" : "[where the money the money is going/coming from]"
+      "amount" : [amount (positive)]
+    },
+...
 ```
