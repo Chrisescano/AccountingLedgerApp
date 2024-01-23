@@ -74,7 +74,11 @@ public class TransactionController {
         int userId = user.getId();
 
         List<Transaction> transactions = transactionDao.getAll(userId);
-        return transactions.stream().filter(transaction -> transaction.getAmount() < 0).toList();
+        transactions.stream()
+                .filter(transaction -> transaction.getAmount() < 0)
+                .forEach(transaction -> transaction.setAmount(transaction.getAmount() * -1));
+
+        return transactions;
     }
 
     @PostMapping()
