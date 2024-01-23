@@ -153,7 +153,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"lawrence\",\r\n  \"password\": \"LawrencePassword\"\r\n}",
+					"raw": "// {\r\n//   \"username\": \"{{currentUserName}}\",\r\n//   \"password\": \"{{currentPassword}}\"\r\n// }\r\n\r\n{\r\n    \"username\" : \"christian\",\r\n    \"password\" : \"ChristianPassword\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -179,7 +179,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"pm.test(\"Get Existing Profile should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -212,6 +214,19 @@
 		},
 		{
 			"name": "Edit Profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update Existing Profile should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -248,6 +263,24 @@
 		},
 		{
 			"name": "Get Ledger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var transactions = pm.response.json()\r",
+							"\r",
+							"pm.test(\"Get Ledger should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(transactions).to.not.be.empty; //40 items in total\r",
+							"    pm.expect(transactions).to.equal = 40;\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -275,6 +308,22 @@
 		},
 		{
 			"name": "Adding a Transaction",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var items = pm.response.json();\r",
+							"\r",
+							"pm.test(\"adding a transaction should succeed\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    pm.expect(items).to.not.be.empty;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -311,6 +360,23 @@
 		},
 		{
 			"name": "Search Transactions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var transactions = pm.response.json();\r",
+							"\r",
+							"pm.test(\"searching transactions should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(transactions).to.not.be.empty; //3 in total\r",
+							"    pm.expect(transactions).to.equal = 3;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -325,7 +391,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/transaction?description=online&vendor=hub",
+					"raw": "{{baseUrl}}/transaction?start=2024-01-01&end=2024-01-12",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -335,21 +401,21 @@
 					"query": [
 						{
 							"key": "start",
-							"value": "2024-01-01",
-							"disabled": true
+							"value": "2024-01-01"
 						},
 						{
 							"key": "end",
-							"value": "2024-01-12",
-							"disabled": true
+							"value": "2024-01-12"
 						},
 						{
 							"key": "description",
-							"value": "online"
+							"value": "online",
+							"disabled": true
 						},
 						{
 							"key": "vendor",
-							"value": "hub"
+							"value": "hub",
+							"disabled": true
 						},
 						{
 							"key": "min",
@@ -368,6 +434,23 @@
 		},
 		{
 			"name": "Get Deposits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var transactions = pm.response.json();\r",
+							"\r",
+							"pm.test(\"getting transactions should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(transactions).to.not.be.empty; //10 in total\r",
+							"    pm.expect(transactions).to.equal = 10;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -396,6 +479,23 @@
 		},
 		{
 			"name": "Get Payments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var transactions = pm.response.json();\r",
+							"\r",
+							"pm.test(\"getting payments should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(transactions).to.not.be.empty; //30 total\r",
+							"    pm.expect(transactions).to.equal = 30;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -424,6 +524,23 @@
 		},
 		{
 			"name": "Filter - Month To Date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var transactions = pm.response.json();\r",
+							"\r",
+							"pm.test(\"filtering for month to date should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(transactions).to.not.be.empty; //12 total\r",
+							"    pm.expect(transactions).to.equal = 12;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -452,6 +569,22 @@
 		},
 		{
 			"name": "Filter - Previous Month",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var transactions = pm.response.json();\r",
+							"\r",
+							"pm.test(\"filtering for previous month should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    //empty for now - add 1 to make sure it works\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -480,6 +613,22 @@
 		},
 		{
 			"name": "Filter - Year To Date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var transactions = pm.response.json();\r",
+							"\r",
+							"pm.test(\"filtering from year to date should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(transactions).to.not.be.empty; //12 total\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -508,6 +657,20 @@
 		},
 		{
 			"name": "Filter - Previous Year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"filtering by previous year should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    //empty for now - maybe add 1\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -536,6 +699,23 @@
 		},
 		{
 			"name": "Filter - By Vendor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var transactions = pm.response.json();\r",
+							"\r",
+							"pm.test(\"filtering by vendor should succeed\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(transactions).to.not.be.empty; //1 total\r",
+							"    pm.expect(transactions).to.equal = 1\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -550,7 +730,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/reports?vendor=h",
+					"raw": "{{baseUrl}}/reports?vendor=Organizer",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -560,7 +740,7 @@
 					"query": [
 						{
 							"key": "vendor",
-							"value": "h"
+							"value": "Organizer"
 						}
 					]
 				}
@@ -612,6 +792,16 @@
 		{
 			"key": "newUserPassword",
 			"value": "thePass",
+			"type": "string"
+		},
+		{
+			"key": "currentUserName",
+			"value": "christian",
+			"type": "string"
+		},
+		{
+			"key": "currentPassword",
+			"value": "ChristianPassword",
 			"type": "string"
 		}
 	]
